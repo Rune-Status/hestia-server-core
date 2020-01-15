@@ -70,7 +70,7 @@ publishing {
         create("production", MavenPublication::class) {
             artifact("$buildDir/outputs/aar/app-release.aar")
             groupId
-            artifactId = "server-core"
+            artifactId = "hestia-server-core"
             version = versionName
             pom.addDependencies()
         }
@@ -81,9 +81,10 @@ bintray {
     user = bintrayUser
     key = bintrayKey
     setConfigurations("archives")
+    publish = true
     pkg(delegateClosureOf<PackageConfig> {
         repo = "Hestia"
-        name = "server-core"
+        name = "hestia-server-core"
         userOrg = "hestia-rsps"
         vcsUrl = "https://github.com/hestia-rsps/hestia-server-core.git"
         setLabels("kotlin")
